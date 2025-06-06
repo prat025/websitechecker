@@ -76,7 +76,7 @@ def check_for_update():
     else:
         print("✅ No change detected.")
 
-def monitor_website:
+def monitor_website():
     print("🔍 Starting website monitoring...")
     while True:
         check_for_update()
