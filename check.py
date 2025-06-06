@@ -3,6 +3,7 @@ import requests
 import time
 import os
 from bs4 import BeautifulSoup
+from flask import Flask
 
 # Settings
 URL = 'https://upsc.gov.in/examinations/Civil%20Services%20%28Preliminary%29%20Examination%2C%202025'  # Replace with your target website
@@ -75,7 +76,14 @@ def check_for_update():
     else:
         print("✅ No change detected.")
 
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "App is running"
+
 if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
     while True:
         check_for_update()
         time.sleep(CHECK_INTERVAL)
