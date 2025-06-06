@@ -76,6 +76,12 @@ def check_for_update():
     else:
         print("✅ No change detected.")
 
+def monitor_website:
+    print("🔍 Starting website monitoring...")
+    while True:
+        check_for_update()
+        time.sleep(CHECK_INTERVAL)
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -83,7 +89,6 @@ def home():
     return "App is running"
 
 if __name__ == "__main__":
+    threading.Thread(target=monitor_website, daemon=True).start()
     app.run(host="0.0.0.0", port=10000)
-    while True:
-        check_for_update()
-        time.sleep(CHECK_INTERVAL)
+
