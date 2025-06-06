@@ -4,6 +4,7 @@ import time
 import os
 from bs4 import BeautifulSoup
 from flask import Flask
+import threading
 
 # Settings
 URL = 'https://upsc.gov.in/examinations/Civil%20Services%20%28Preliminary%29%20Examination%2C%202025'  # Replace with your target website
